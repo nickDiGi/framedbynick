@@ -60,7 +60,7 @@
     font-weight: 300;
   }
   
-  @media (min-width: 576px) {
+  @media (min-width: 992px) {
   
     .catalog-block.compact-catalog .item .description {
       opacity: 0; 
@@ -84,7 +84,7 @@
   transition: 0.8s;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 992px) {
 
   .catalog-block.grid-catalog .scale-on-hover:hover{
     transform: scale(1.05);
