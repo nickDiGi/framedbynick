@@ -1,0 +1,74 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+div
+{
+    display : block;
+    padding: 0px;
+    margin: 0;
+}
+
+.faux-borders {
+    /*background: rgb(238,223,174);
+    background: radial-gradient(circle, rgba(238,223,174,1) 0%, rgba(240,251,238,1) 100%);*/
+    background: rgb(255, 255, 255);
+    padding: 1px 2%; /* set padding to simulate border */
+    padding-top: 2%; /* set padding to simulate border */
+    padding-bottom: 2%; /* set padding to simulate border */
+}
+
+.content {
+    /*background-color: #ffffff;*/
+    text-align:center;
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+a:hover {
+    color:#00A0C6; 
+    text-decoration:none; 
+    cursor:pointer;  
+}
+
+@media all and (min-width: 1400px) {
+    .content h1{
+        font-size: 50px;
+    }
+    .content h2{
+        font-size: 30px;
+    }
+    .content{
+        font-size: 20px;
+    }
+}
+    
+@media all and (max-width: 1399px) and (min-width: 600px) {
+    .content h1{
+        font-size: 6vw;
+    }
+    .content h2{
+        font-size: 3vw;
+    }
+    .content{
+        font-size: 2vw;
+    }
+}
+    
+@media all and (max-width: 599px) and (min-width: 50px) {
+    .content h1{
+        font-size: 8vw;
+    }
+    .content h2{
+        font-size: 4vw;
+    }
+    .content{
+        font-size: 3vw;
+    }
+}
