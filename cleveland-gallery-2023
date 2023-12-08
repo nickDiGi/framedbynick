@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Special Elite">
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <style>
+      body {
+        font-family: 'Special Elite', serif;
+        font-size: 48px;
+      }
+    </style>
+
+    <!-- Add stylesheets here -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gallery.css">
+
+</head>
+
+<body>
+    <div class="faux-borders">
+
+        <div class="content">
+            <a class="lightbox" href="/">
+                <h1>
+                    framed by Nick 
+                </h1>
+            </a>
+            <h2>
+                cleveland january 2023
+            </h2>
+        </div>
+
+        <div class="row">
+            <div class="column-quad">
+                <a class="lightbox" href="img/cleveland-2023/IMG_0380.JPG">
+                    <img src="img/cleveland-2023/IMG_0380.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0276.JPG">
+                    <img src="img/cleveland-2023/IMG_0276.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0361.JPG">
+                    <img src="img/cleveland-2023/IMG_0361.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0375.JPG">
+                    <img src="img/cleveland-2023/IMG_0375.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0323.JPG">
+                    <img src="img/cleveland-2023/IMG_0323.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0410.JPG">
+                    <img src="img/cleveland-2023/IMG_0410.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0248.JPG">
+                    <img src="img/cleveland-2023/IMG_0248.JPG">
+                </a>
+            </div>
+            <div class="column-quad">
+                <a class="lightbox" href="img/cleveland-2023/IMG_0387.JPG">
+                    <img src="img/cleveland-2023/IMG_0387.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0205.JPG">
+                    <img src="img/cleveland-2023/IMG_0205.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0397.JPG">
+                    <img src="img/cleveland-2023/IMG_0397.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0298.JPG">
+                    <img src="img/cleveland-2023/IMG_0298.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0340.JPG">
+                    <img src="img/cleveland-2023/IMG_0340.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0274.JPG">
+                    <img src="img/cleveland-2023/IMG_0274.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0306.JPG">
+                    <img src="img/cleveland-2023/IMG_0306.JPG">
+                </a>
+            </div>
+            <div class="column-quad">
+                <a class="lightbox" href="img/cleveland-2023/IMG_0364.JPG">
+                    <img src="img/cleveland-2023/IMG_0364.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0366.JPG">
+                    <img src="img/cleveland-2023/IMG_0366.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0316.JPG">
+                    <img src="img/cleveland-2023/IMG_0316.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0355.JPG">
+                    <img src="img/cleveland-2023/IMG_0355.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0233.JPG">
+                    <img src="img/cleveland-2023/IMG_0233.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0292.JPG">
+                    <img src="img/cleveland-2023/IMG_0292.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0251.JPG">
+                    <img src="img/cleveland-2023/IMG_0251.JPG">
+                </a>
+            </div>
+            <div class="column-quad">
+                <a class="lightbox" href="img/cleveland-2023/IMG_0403.JPG">
+                    <img src="img/cleveland-2023/IMG_0403.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0369.JPG">
+                    <img src="img/cleveland-2023/IMG_0369.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0348.JPG">
+                    <img src="img/cleveland-2023/IMG_0348.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0226.JPG">
+                    <img src="img/cleveland-2023/IMG_0226.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0381.JPG">
+                    <img src="img/cleveland-2023/IMG_0381.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0280.JPG">
+                    <img src="img/cleveland-2023/IMG_0280.JPG">
+                </a>
+                <a class="lightbox" href="img/cleveland-2023/IMG_0253.JPG">
+                    <img src="img/cleveland-2023/IMG_0253.JPG">
+                </a>
+            </div>
+          </div>
+
+    </div>
+</body>
+
+</html>

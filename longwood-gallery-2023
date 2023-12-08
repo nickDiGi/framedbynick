@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Special Elite">
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <style>
+      body {
+        font-family: 'Special Elite', serif;
+        font-size: 48px;
+      }
+    </style>
+
+    <!-- Add stylesheets here -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gallery.css">
+
+</head>
+
+<body>
+    <div class="faux-borders">
+
+        <div class="content">
+            <a class="lightbox" href="/">
+                <h1>
+                    framed by Nick 
+                </h1>
+            </a>
+            <h2>
+                longwood gardens may 2023
+            </h2>
+        </div>
+
+        <div class="row">
+            <div class="column-double">
+                <a class="lightbox" href="img/longwood-gardens-2023/IMG_0459.JPG">
+                    <img src="img/longwood-gardens-2023/IMG_0459.JPG">
+                </a>
+                <a class="lightbox" href="img/longwood-gardens-2023/IMG_0469.JPG">
+                    <img src="img/longwood-gardens-2023/IMG_0469.JPG">
+                </a>
+                <a class="lightbox" href="img/longwood-gardens-2023/IMG_0446.JPG">
+                    <img src="img/longwood-gardens-2023/IMG_0446.JPG">
+                </a>
+                <a class="lightbox" href="img/longwood-gardens-2023/IMG_0468.JPG">
+                    <img src="img/longwood-gardens-2023/IMG_0468.JPG">
+                </a>
+                <a class="lightbox" href="img/longwood-gardens-2023/IMG_0439.JPG">
+                    <img src="img/longwood-gardens-2023/IMG_0439.JPG">
+                </a>
+                <a class="lightbox" href="img/longwood-gardens-2023/IMG_0494.JPG">
+                    <img src="img/longwood-gardens-2023/IMG_0494.JPG">
+                </a>
+            </div>
+            <div class="column-double">
+                <a class="lightbox" href="img/longwood-gardens-2023/IMG_0509.JPG">
+                    <img src="img/longwood-gardens-2023/IMG_0509.JPG">
+                </a>
+                <a class="lightbox" href="img/longwood-gardens-2023/IMG_0428.JPG">
+                    <img src="img/longwood-gardens-2023/IMG_0428.JPG">
+                </a>
+                <a class="lightbox" href="img/longwood-gardens-2023/IMG_0471.JPG">
+                    <img src="img/longwood-gardens-2023/IMG_0471.JPG">
+                </a>
+                <a class="lightbox" href="img/longwood-gardens-2023/IMG_0423.JPG">
+                    <img src="img/longwood-gardens-2023/IMG_0423.JPG">
+                </a>
+                <a class="lightbox" href="img/longwood-gardens-2023/IMG_0447.JPG">
+                    <img src="img/longwood-gardens-2023/IMG_0447.JPG">
+                </a>
+                <a class="lightbox" href="img/longwood-gardens-2023/IMG_0452.JPG">
+                    <img src="img/longwood-gardens-2023/IMG_0452.JPG">
+                </a>
+                <a class="lightbox" href="img/longwood-gardens-2023/IMG_0473.JPG">
+                    <img src="img/longwood-gardens-2023/IMG_0473.JPG">
+                </a>
+            </div>
+          </div>
+
+    </div>
+</body>
+
+</html>

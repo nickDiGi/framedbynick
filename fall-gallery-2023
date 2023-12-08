@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Special Elite">
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <style>
+      body {
+        font-family: 'Special Elite', serif;
+        font-size: 48px;
+      }
+    </style>
+
+    <!-- Add stylesheets here -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gallery.css">
+
+</head>
+
+<body>
+    <div class="faux-borders">
+
+        <div class="content">
+            <a class="lightbox" href="/">
+                <h1>
+                    framed by Nick 
+                </h1>
+            </a>
+            <h2>
+                fall on film 2023
+            </h2>
+        </div>
+        <div class="row">
+            <div class="column-double">
+                <a class="lightbox" href="img/fall-2023/port-000583440024.jpg">
+                    <img src="img/fall-2023/port-000583440024.jpg">
+                </a>
+            </div>
+            <div class="column-double">
+                <a class="lightbox" href="img/fall-2023/port-000583450031.jpg">
+                    <img src="img/fall-2023/port-000583450031.jpg">
+                </a>
+            </div>
+        </div>
+
+        <div class="hero">
+            <a class="lightbox" href="img/fall-2023/port-000583430008.jpg">
+                <img src="img/fall-2023/port-000583430008.jpg">
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="column-double">
+                <a class="lightbox" href="img/fall-2023/port-000365710026-edited.jpg">
+                    <img src="img/fall-2023/port-000365710026-edited.jpg">
+                </a>
+                <a class="lightbox" href="img/fall-2023/port-000365710023.jpg">
+                    <img src="img/fall-2023/port-000365710023.jpg">
+                </a>
+            </div>
+            <div class="column-double">
+                <a class="lightbox" href="img/fall-2023/port-000583430004.jpg">
+                    <img src="img/fall-2023/port-000583430004.jpg">
+                </a>
+                <a class="lightbox" href="img/fall-2023/port-000583430003.jpg">
+                    <img src="img/fall-2023/port-000583430003.jpg">
+                </a>
+            </div>
+        </div>
+
+        <div class="hero">
+            <a class="lightbox" href="img/fall-2023/port-000365720008.jpg">
+                <img src="img/fall-2023/port-000365720008.jpg">
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="column-double">
+                <a class="lightbox" href="img/fall-2023/port-000583430014.jpg">
+                    <img src="img/fall-2023/port-000583430014.jpg">
+                </a>
+                <a class="lightbox" href="img/fall-2023/port-000583450016.jpg">
+                    <img src="img/fall-2023/port-000583450016.jpg">
+                </a>
+            </div>
+            <div class="column-double">
+                <a class="lightbox" href="img/fall-2023/port-000583430012.jpg">
+                    <img src="img/fall-2023/port-000583430012.jpg">
+                </a>
+                <a class="lightbox" href="img/fall-2023/port-000583430031.jpg">
+                    <img src="img/fall-2023/port-000583430031.jpg">
+                </a>
+            </div>
+        </div>
+
+        <div class="hero">
+            <a class="lightbox" href="img/fall-2023/port-000583440029.jpg">
+                <img src="img/fall-2023/port-000583440029.jpg">
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="column-double">
+                <a class="lightbox" href="img/fall-2023/port-000365710012.jpg">
+                    <img src="img/fall-2023/port-000365710012.jpg">
+                </a>
+                <a class="lightbox" href="img/fall-2023/port-000365720011.jpg">
+                    <img src="img/fall-2023/port-000365720011.jpg">
+                </a>
+                <a class="lightbox" href="img/fall-2023/port-000583440008.jpg">
+                    <img src="img/fall-2023/port-000583440008.jpg">
+                </a>
+                <a class="lightbox" href="img/fall-2023/port-000365710011-edited.jpg">
+                    <img src="img/fall-2023/port-000365710011-edited.jpg">
+                </a>
+                <a class="lightbox" href="img/fall-2023/port-000583450028.jpg">
+                    <img src="img/fall-2023/port-000583450028.jpg">
+                </a>
+                <a class="lightbox" href="img/fall-2023/port-000583440031.jpg">
+                    <img src="img/fall-2023/port-000583440031.jpg">
+                </a>
+                <a class="lightbox" href="img/fall-2023/port-000583440020.jpg">
+                    <img src="img/fall-2023/port-000583440020.jpg">
+                </a>
+                <a class="lightbox" href="img/fall-2023/port-000365710010-edited.jpg">
+                    <img src="img/fall-2023/port-000365710010-edited.jpg">
+                </a>
+            </div>
+            <div class="column-double">
+                <a class="lightbox" href="img/fall-2023/port-000365720022-edited.jpg">
+                    <img src="img/fall-2023/port-000365720022-edited.jpg">
+                </a>
+                <a class="lightbox" href="img/fall-2023/port-000583450033.jpg">
+                    <img src="img/fall-2023/port-000583450033.jpg">
+                </a>
+                <a class="lightbox" href="img/fall-2023/port-000365720009.jpg">
+                    <img src="img/fall-2023/port-000365720009.jpg">
+                </a>
+                <a class="lightbox" href="img/fall-2023/port-000583450013.jpg">
+                    <img src="img/fall-2023/port-000583450013.jpg">
+                </a>
+                <a class="lightbox" href="img/fall-2023/port-000365710032-edited.jpg">
+                    <img src="img/fall-2023/port-000365710032-edited.jpg">
+                </a>
+                <a class="lightbox" href="img/fall-2023/port-000365710025.jpg">
+                    <img src="img/fall-2023/port-000365710025.jpg">
+                </a>
+                <a class="lightbox" href="img/fall-2023/port-000583430030.jpg">
+                    <img src="img/fall-2023/port-000583430030.jpg">
+                </a>
+                <a class="lightbox" href="img/fall-2023/port-000583450036.jpg">
+                    <img src="img/fall-2023/port-000583450036.jpg">
+                </a>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
