@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Special Elite">
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <style>
+      body {
+        font-family: 'Special Elite', serif;
+        font-size: 48px;
+      }
+    </style>
+
+    <!-- Add stylesheets here -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gallery.css">
+
+</head>
+
+<body>
+    <div class="faux-borders">
+
+        <div class="content">
+            <a class="lightbox" href="/">
+                <h1>
+                    framed by Nick 
+                </h1>
+            </a>
+            <h2>
+                watkins glen 2024
+            </h2>
+        </div>
+
+        <div class="hero">
+            <a class="lightbox" href="img/watkins-glen-2024/IMG_0818-2.jpg">
+                <img src="img/watkins-glen-2024/IMG_0818-2.jpg">
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="column-double">
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0709.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0709.jpg">
+                </a>
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0703.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0703.jpg">
+                </a>
+            </div>
+            <div class="column-double">
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0809.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0809.jpg">
+                </a>
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0789.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0789.jpg">
+                </a>
+            </div>
+        </div>
+
+        <div class="hero">
+            <a class="lightbox" href="img/watkins-glen-2024/IMG_0857.jpg">
+                <img src="img/watkins-glen-2024/IMG_0857.jpg">
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="column-double">
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0747.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0747.jpg">
+                </a>
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0835.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0835.jpg">
+                </a>
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0770.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0770.jpg">
+                </a>
+            </div>
+            <div class="column-double">
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0685.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0685.jpg">
+                </a>
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0708.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0708.jpg">
+                </a>
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0677.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0677.jpg">
+                </a>
+            </div>
+        </div>
+
+        <div class="hero">
+            <a class="lightbox" href="img/watkins-glen-2024/IMG_0871.jpg">
+                <img src="img/watkins-glen-2024/IMG_0871.jpg">
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="column-double">
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0806.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0806.jpg">
+                </a>
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0816.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0816.jpg">
+                </a>
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0698.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0698.jpg">
+                </a>
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0880.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0880.jpg">
+                </a>
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0832.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0832.jpg">
+                </a>
+            </div>
+            <div class="column-double">
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0771.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0771.jpg">
+                </a>
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0695.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0695.jpg">
+                </a>
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0721.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0721.jpg">
+                </a>
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0825.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0825.jpg">
+                </a>
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0736.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0736.jpg">
+                </a>
+            </div>
+        </div>
+
+        <div class="hero">
+            <a class="lightbox" href="img/watkins-glen-2024/IMG_0671-2.jpg">
+                <img src="img/watkins-glen-2024/IMG_0671-2.jpg">
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="column-double">
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0666.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0666.jpg">
+                </a>
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0724.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0724.jpg">
+                </a>
+            </div>
+            <div class="column-double">
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0753.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0753.jpg">
+                </a>
+                <a class="lightbox" href="img/watkins-glen-2024/IMG_0858.jpg">
+                    <img src="img/watkins-glen-2024/IMG_0858.jpg">
+                </a>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

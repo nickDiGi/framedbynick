@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Special Elite">
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <style>
+      body {
+        font-family: 'Special Elite', serif;
+        font-size: 48px;
+      }
+    </style>
+
+    <!-- Add stylesheets here -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gallery.css">
+
+</head>
+
+<body>
+    <div class="faux-borders">
+
+        <div class="content">
+            <a class="lightbox" href="/">
+                <h1>
+                    framed by Nick 
+                </h1>
+            </a>
+            <h2>
+                assorted film 2024
+            </h2>
+        </div>
+
+        <div class="hero">
+            <a class="lightbox" href="img/assorted-film-2024/100900810021.jpg">
+                <img src="img/assorted-film-2024/100900810021.jpg">
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="column-double">
+                <a class="lightbox" href="img/assorted-film-2024/100900810018.jpg">
+                    <img src="img/assorted-film-2024/100900810018.jpg">
+                </a>
+            </div>
+            <div class="column-double">
+                <a class="lightbox" href="img/assorted-film-2024/100900810004.jpg">
+                    <img src="img/assorted-film-2024/100900810004.jpg">
+                </a>
+            </div>
+        </div>
+
+        <div class="hero">
+            <a class="lightbox" href="img/assorted-film-2024/100900810032.jpg">
+                <img src="img/assorted-film-2024/100900810032.jpg">
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="column-double">
+                <a class="lightbox" href="img/assorted-film-2024/100215310015.jpg">
+                    <img src="img/assorted-film-2024/100215310015.jpg">
+                </a>
+                <a class="lightbox" href="img/assorted-film-2024/100215310022.jpg">
+                    <img src="img/assorted-film-2024/100215310022.jpg">
+                </a>
+            </div>
+            <div class="column-double">
+                <a class="lightbox" href="img/assorted-film-2024/100215310011.jpg">
+                    <img src="img/assorted-film-2024/100215310011.jpg">
+                </a>
+                <a class="lightbox" href="img/assorted-film-2024/100215310006.jpg">
+                    <img src="img/assorted-film-2024/100215310006.jpg">
+                </a>
+            </div>
+        </div>
+
+        <div class="hero">
+            <a class="lightbox" href="img/assorted-film-2024/100900800003.jpg">
+                <img src="img/assorted-film-2024/100900800003.jpg">
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="column-double">
+                <a class="lightbox" href="img/assorted-film-2024/100215310017.jpg">
+                    <img src="img/assorted-film-2024/100215310017.jpg">
+                </a>
+                <a class="lightbox" href="img/assorted-film-2024/100900810023.jpg">
+                    <img src="img/assorted-film-2024/100900810023.jpg">
+                </a>
+            </div>
+            <div class="column-double">
+                <a class="lightbox" href="img/assorted-film-2024/100900810033.jpg">
+                    <img src="img/assorted-film-2024/100900810033.jpg">
+                </a>
+                <a class="lightbox" href="img/assorted-film-2024/100215310002.jpg">
+                    <img src="img/assorted-film-2024/100215310002.jpg">
+                </a>
+            </div>
+        </div>
+
+        <div class="hero">
+            <a class="lightbox" href="img/assorted-film-2024/100900810015.jpg">
+                <img src="img/assorted-film-2024/100900810015.jpg">
+            </a>
+        </div>
+
+        <div class="hero">
+            <a class="lightbox" href="img/assorted-film-2024/100900820018.jpg">
+                <img src="img/assorted-film-2024/100900820018.jpg">
+            </a>
+        </div>       
+
+        <div class="row">
+            <div class="column-double">
+                <a class="lightbox" href="img/assorted-film-2024/100900820005.jpg">
+                    <img src="img/assorted-film-2024/100900820005.jpg">
+                </a>
+                <a class="lightbox" href="img/assorted-film-2024/100929400022.jpg">
+                    <img src="img/assorted-film-2024/100929400022.jpg">
+                </a>
+                <a class="lightbox" href="img/assorted-film-2024/100929400015.jpg">
+                    <img src="img/assorted-film-2024/100929400015.jpg">
+                </a>
+                <a class="lightbox" href="img/assorted-film-2024/100929400020.jpg">
+                    <img src="img/assorted-film-2024/100929400020.jpg">
+                </a>
+
+                <a class="lightbox" href="img/assorted-film-2024/100929400001.jpg">
+                    <img src="img/assorted-film-2024/100929400001.jpg">
+                </a>
+                <a class="lightbox" href="img/assorted-film-2024/100929410035.jpg">
+                    <img src="img/assorted-film-2024/100929410035.jpg">
+                </a>
+                <a class="lightbox" href="img/assorted-film-2024/100929410016.jpg">
+                    <img src="img/assorted-film-2024/100929410016.jpg">
+                </a>
+            </div>
+            <div class="column-double">
+                <a class="lightbox" href="img/assorted-film-2024/100900820001.jpg">
+                    <img src="img/assorted-film-2024/100900820001.jpg">
+                </a>
+                <a class="lightbox" href="img/assorted-film-2024/100929400007.jpg">
+                    <img src="img/assorted-film-2024/100929400007.jpg">
+                </a>
+                <a class="lightbox" href="img/assorted-film-2024/100929400019.jpg">
+                    <img src="img/assorted-film-2024/100929400019.jpg">
+                </a>
+                <a class="lightbox" href="img/assorted-film-2024/100929400005.jpg">
+                    <img src="img/assorted-film-2024/100929400005.jpg">
+                </a>
+
+                <a class="lightbox" href="img/assorted-film-2024/100929400025.jpg">
+                    <img src="img/assorted-film-2024/100929400025.jpg">
+                </a>
+                <a class="lightbox" href="img/assorted-film-2024/100929410032.jpg">
+                    <img src="img/assorted-film-2024/100929410032.jpg">
+                </a>
+                <a class="lightbox" href="img/assorted-film-2024/100929410021.jpg">
+                    <img src="img/assorted-film-2024/100929410021.jpg">
+                </a>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
