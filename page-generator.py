@@ -7,15 +7,24 @@ class ImageLoaderApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Image Loader")
-        self.root.geometry("1920x1080+0+0")  # Set position to top-left corner of the screen
+        self.root.geometry("1940x1080+0+0")  # Set position to top-left corner of the screen
 
         # Create a container frame to hold the main content and footer
         self.main_frame = tk.Frame(self.root)
         self.main_frame.pack(fill="both", expand=True)
 
-        # Create the main pane (right side for images)
-        self.main_pane = tk.Canvas(self.main_frame, bg="white", width=1920, height=980)  # Full width of the window
-        self.main_pane.pack(side="top", fill="both", expand=True)
+        # Create the canvas to hold the images
+        self.canvas_frame = tk.Frame(self.main_frame)  # Frame to hold the canvas and scrollbar
+        self.canvas_frame.pack(side="top", fill="both", expand=True)
+
+        # Create a Canvas widget
+        self.main_pane = tk.Canvas(self.canvas_frame, bg="white", width=1920, height=980)
+        self.main_pane.pack(side="left", fill="both", expand=True)
+
+        # Create a vertical scrollbar for the Canvas
+        self.scrollbar = tk.Scrollbar(self.canvas_frame, orient="vertical", command=self.main_pane.yview)
+        self.scrollbar.pack(side="right", fill="y")
+        self.main_pane.configure(yscrollcommand=self.scrollbar.set)
 
         # Draw a light blue box covering the left half of the main pane
         self.main_pane.create_rectangle(0, 0, 960, 1080, fill="lightblue", outline="lightblue")
@@ -57,11 +66,11 @@ class ImageLoaderApp:
 
         # Get all image files in the folder
         image_files = [f for f in os.listdir(folder_path) if f.lower().endswith(('png', 'jpg', 'jpeg', 'gif', 'bmp'))]
-        x_offset = 965  # Start in the middle of the pane (right side)
+        x_offset = 985  # Start in the middle of the pane (right side)
         y_offset = 0
         max_row_width = 1920  # Max width (right half of the screen)
-        image_width = 150  # Image width
-        image_height = 150  # Image height
+        image_width = 300  # Image width
+        image_height = 200  # Image height
 
         for i, image_file in enumerate(image_files):
             image_path = os.path.join(folder_path, image_file)
@@ -89,8 +98,11 @@ class ImageLoaderApp:
             x_offset += (image_width + 10)  # Move horizontally by the image width
             if x_offset + image_width > max_row_width:
                 # If the image goes beyond the pane width, move to the next row
-                x_offset = 965  # Reset to the middle (right side)
-                y_offset += image_height  # Move down to the next row
+                x_offset = 985  # Reset to the middle (right side)
+                y_offset += image_height + 10  # Move down to the next row
+
+        # Update the scroll region of the canvas to enable vertical scrolling
+        self.main_pane.config(scrollregion=self.main_pane.bbox("all"))
 
     def export_images(self):
         # Separate the images into left and right sections based on their x values
@@ -112,12 +124,20 @@ class ImageLoaderApp:
             print(f"Image {img['filename']} at x={img['x']}, y={img['y']}")
 
     def on_image_drag(self, event, image_id):
-        # Move the image based on mouse drag
-        self.main_pane.coords(image_id, event.x, event.y)
+        # Get the current vertical scroll position
+        scroll_y = self.main_pane.yview()[0] * self.main_pane.bbox("all")[3]  # The vertical scroll position multiplied by the canvas height
+
+        # Adjust the event coordinates by the scroll position
+        adjusted_y = event.y + scroll_y  # Adjust the y-coordinate for scrolling
+
+        # Move the image based on the adjusted coordinates
+        self.main_pane.coords(image_id, event.x, adjusted_y)
+
+        # Update the image position in the list
         for img in self.images:
             if img['id'] == image_id:
                 img['x'] = event.x
-                img['y'] = event.y
+                img['y'] = adjusted_y  # Update the y position
                 break
 
     def on_image_release(self, event, image_id):
@@ -135,9 +155,18 @@ class ImageLoaderApp:
         self.main_pane.tag_bind(image_id, "<ButtonRelease-1>", self.on_release)
 
     def start_drag(self, event):
+        # Get the current vertical scroll position
+        scroll_y = self.main_pane.yview()[0] * self.main_pane.bbox("all")[3]  # The vertical scroll position multiplied by the canvas height
+
+        # Adjust the event coordinates by the scroll position
+        adjusted_y = event.y + scroll_y  # Adjust the y-coordinate for scrolling
+
         # Identify the image being clicked to start dragging
-        image_id = self.main_pane.find_closest(event.x, event.y)
+        image_id = self.main_pane.find_closest(event.x, adjusted_y)
+
         self.dragging_image = image_id
+
+        # Start dragging by adjusting the initial position
         self.on_image_drag(event, image_id)
 
     def on_drag(self, event):
