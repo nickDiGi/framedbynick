@@ -3,6 +3,86 @@ from tkinter import filedialog
 from PIL import Image, ImageTk
 import os
 
+def create_html_file(filename):
+    filename = "s:/Software/Github/framedbynick/" + filename
+    html_content = """<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=\"utf-8\">
+    <link rel=\"stylesheet\"
+          href=\"https://fonts.googleapis.com/css?family=Special+Elite\">
+    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css\">
+    <style>
+      body {
+        font-family: 'Special Elite', serif;
+        font-size: 48px;
+      }
+    </style>
+
+    <!-- Add stylesheets here -->
+    <link rel=\"stylesheet\" href=\"style.css\">
+    <link rel=\"stylesheet\" href=\"gallery.css\">
+
+</head>
+
+<body>
+    <div class=\"faux-borders\">
+
+        <div class=\"content\">
+            <a class=\"lightbox\" href=\"/\">
+                <h1>
+                    framed by Nick 
+                </h1>
+            </a>
+            <h2>
+                title-here
+            </h2>
+        </div>
+
+"""
+
+    # Write the HTML content to the specified file
+    with open(filename, "w", encoding="utf-8") as file:
+        file.write(html_content)
+
+def append_line_to_file(filename, line):
+    filename = "s:/Software/Github/framedbynick/" + filename
+    """
+    Appends a given line to the specified file.
+
+    Parameters:
+        filename (str): The path to the file to which the line should be appended.
+        line (str): The line of text to append to the file.
+    """
+    try:
+        with open(filename, "a") as file:
+            file.write(line + "\n")
+    except Exception as e:
+        print(f"An error occurred while appending to the file: {e}")
+
+
+def complete_html(filename):
+    filename = "s:/Software/Github/framedbynick/" + filename
+    """
+    Appends the closing HTML tags to the specified file.
+
+    Args:
+        filename (str): The name of the file to append the HTML to.
+    """
+    closing_lines = [
+        "",  # Empty line for spacing
+        "    </div>",
+        "</body>",
+        "",  # Empty line for spacing
+        "</html>"
+    ]
+
+    with open(filename, 'a') as file:
+        for line in closing_lines:
+            file.write(line + '\n')
+
+
 class ImageLoaderApp:
     def __init__(self, root):
         self.root = root
@@ -131,7 +211,8 @@ class ImageLoaderApp:
 
         # Sort the images in each section by their y value in descending order
         sorted_images = sorted(self.images, key=lambda img: img['y'], reverse=False)
-        # Separate the images into left and right sections based on their x values
+
+        # Separate the images into left, right, and hero sections based on their x values
         for img in sorted_images:
             if (img['x']) < 480 and (img['x'] + img['width']) >= 480:
                 # Hero Image
@@ -146,26 +227,41 @@ class ImageLoaderApp:
             elif (img['x'] + img['width']) >= 480 and (img['x'] + img['width']) < 960:
                 # Right Column
                 right_images.append(img)
-
         if (len(left_images)>0):
             export_image_columns.append(list(left_images))
         if (len(right_images)>0):
             export_image_columns.append(list(right_images))
 
+        create_html_file("new-gallery")
+
         for column_list in export_image_columns:
             print(f"~~~~~~{column_list[0]}~~~~~~")
+            if column_list[0] == "hero":
+                append_line_to_file("new-gallery", "")
+                append_line_to_file("new-gallery", "        <div class=\"hero\">")
+            else:
+                append_line_to_file("new-gallery", "")
+                append_line_to_file("new-gallery", "        <div class=\"row\">")
+
             for item in column_list[1:]:
-                 print(item['filename'])
+                index = item['filename'].find("img")
+                if index != -1:
+                    filename = item['filename'][index:]
+                print(filename)
+                if column_list[0] == "hero":
+                    append_line_to_file("new-gallery", f"            <a class=\"lightbox\" href=\"{filename}\">")
+                    append_line_to_file("new-gallery", f"                <img src=\"{filename}\" loading=\"lazy\">")
+                    append_line_to_file("new-gallery", "            </a>")
+                else:
+                    append_line_to_file("new-gallery", f"            <div class=\"column-double\">")
+                    append_line_to_file("new-gallery", f"                <a class=\"lightbox\" href=\"{filename}\">")
+                    append_line_to_file("new-gallery", f"                    <img src=\"{filename}\" loading=\"lazy\">")
+                    append_line_to_file("new-gallery", "                </a>")
+                    append_line_to_file("new-gallery", "            </div>")
 
-        '''# Print the images from the left section
-        print("Images in the left section (x < 480):")
-        for img in left_images_sorted:
-            print(f"Image {img['filename']} at x={img['x']}, y={img['y']}")
+            append_line_to_file("new-gallery", "        </div>")
 
-        # Print the images from the right section
-        print("Images in the right section (x >= 480 < 960):")
-        for img in right_images_sorted:
-            print(f"Image {img['filename']} at x={img['x']}, y={img['y']}")'''
+        complete_html("new-gallery")
 
     def hero_image(self):
         if self.current_image_id:
