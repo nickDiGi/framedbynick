@@ -14,8 +14,14 @@ class ImageLoaderApp:
         self.main_frame.pack(fill="both", expand=True)
 
         # Create the main pane (right side for images)
-        self.main_pane = tk.Canvas(self.main_frame, bg="white", width=960, height=980)  # Right half of the window
+        self.main_pane = tk.Canvas(self.main_frame, bg="white", width=1920, height=980)  # Full width of the window
         self.main_pane.pack(side="top", fill="both", expand=True)
+
+        # Draw a light blue box covering the left half of the main pane
+        self.main_pane.create_rectangle(0, 0, 960, 1080, fill="lightblue", outline="lightblue")
+
+        # Draw a thin vertical white bar in the middle of the light blue box
+        self.main_pane.create_rectangle(479, 0, 481, 1080, fill="white", outline="white")
 
         # Create the footer frame with buttons
         self.footer_frame = tk.Frame(self.root, bg="gray", height=100)
@@ -40,6 +46,12 @@ class ImageLoaderApp:
     def populate_images(self, folder_path):
         # Clear the main pane
         self.main_pane.delete("all")
+
+        # Redraw the light blue box after clearing the canvas
+        self.main_pane.create_rectangle(0, 0, 960, 1080, fill="lightblue", outline="lightblue")
+
+        # Redraw the vertical white bar in the middle
+        self.main_pane.create_rectangle(480, 0, 485, 1080, fill="white", outline="white")
 
         # Get all image files in the folder
         image_files = [f for f in os.listdir(folder_path) if f.lower().endswith(('png', 'jpg', 'jpeg', 'gif', 'bmp'))]
