@@ -73,6 +73,7 @@ class ImageLoaderApp:
             img_id = self.main_pane.create_image(x_offset, y_offset, image=img_tk, anchor="nw")
             self.images.append({
                 'id': img_id,
+                'filename': image_path,
                 'image': img_tk,
                 'x': x_offset,
                 'y': y_offset
@@ -103,12 +104,12 @@ class ImageLoaderApp:
         # Print the images from the left section
         print("Images in the left section (x < 480):")
         for img in left_images_sorted:
-            print(f"Image at x={img['x']}, y={img['y']}")
+            print(f"Image {img['filename']} at x={img['x']}, y={img['y']}")
 
         # Print the images from the right section
-        print("Images in the right section (x >= 480):")
+        print("Images in the right section (x >= 480 < 960):")
         for img in right_images_sorted:
-            print(f"Image at x={img['x']}, y={img['y']}")
+            print(f"Image {img['filename']} at x={img['x']}, y={img['y']}")
 
     def on_image_drag(self, event, image_id):
         # Move the image based on mouse drag
