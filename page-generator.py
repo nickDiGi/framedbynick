@@ -101,11 +101,13 @@ class ImageLoaderApp:
                 x_offset = 985  # Reset to the middle (right side)
                 y_offset += image_height + 10  # Move down to the next row
 
-                # Draw a light blue box covering the left half of the main pane
-        self.main_pane.create_rectangle(0, 0, 960, y_offset-5, fill="lightblue", outline="lightblue")
-
+        # Draw a light blue box covering the left half of the main pane
+        extended_rect1 = self.main_pane.create_rectangle(0, 0, 960, y_offset-5, fill="lightblue", outline="lightblue")
         # Draw a thin vertical white bar in the middle
-        self.main_pane.create_rectangle(480, 0, 485, y_offset-5, fill="white", outline="white")
+        extended_rect2 = self.main_pane.create_rectangle(480, 0, 485, y_offset-5, fill="white", outline="white")
+        # Make sure the images are always on top by lowering the rectangles to the back
+        self.main_pane.tag_lower(extended_rect2, "all")
+        self.main_pane.tag_lower(extended_rect1, "all")
 
         # Update the scroll region of the canvas to enable vertical scrolling
         self.main_pane.config(scrollregion=self.main_pane.bbox("all"))
