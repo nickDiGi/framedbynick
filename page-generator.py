@@ -20,8 +20,8 @@ class ImageLoaderApp:
         # Draw a light blue box covering the left half of the main pane
         self.main_pane.create_rectangle(0, 0, 960, 1080, fill="lightblue", outline="lightblue")
 
-        # Draw a thin vertical white bar in the middle of the light blue box
-        self.main_pane.create_rectangle(479, 0, 481, 1080, fill="white", outline="white")
+        # Draw a thin vertical white bar in the middle
+        self.main_pane.create_rectangle(480, 0, 485, 1080, fill="white", outline="white")
 
         # Create the footer frame with buttons
         self.footer_frame = tk.Frame(self.root, bg="gray", height=100)
@@ -37,6 +37,8 @@ class ImageLoaderApp:
 
         # List to hold references to images so they don't get garbage collected
         self.image_references = []
+        self.images = []  # Store the image details for drag and drop
+        self.dragging_image = None  # Store the image currently being dragged
 
     def load_images(self):
         folder_path = filedialog.askdirectory()  # Open dialog to choose folder
@@ -67,26 +69,69 @@ class ImageLoaderApp:
             img.thumbnail((image_width, image_height))  # Resize to fit within a smaller area
             img_tk = ImageTk.PhotoImage(img)
 
-            # Create an image label in the canvas
-            self.main_pane.create_image(x_offset, y_offset, image=img_tk, anchor="nw")
+            # Store the image details for drag-and-drop
+            img_id = self.main_pane.create_image(x_offset, y_offset, image=img_tk, anchor="nw")
+            self.images.append({
+                'id': img_id,
+                'image': img_tk,
+                'x': x_offset,
+                'y': y_offset
+            })
 
             # Store the image reference to prevent garbage collection
             self.image_references.append(img_tk)
 
-            print(f"{image_path} added at {x_offset}, {y_offset}")
+            # Bind drag and drop events to the image
+            self.make_image_draggable(img_id)
 
             # Update offsets for next image
             x_offset += (image_width + 10)  # Move horizontally by the image width
-            print(f"Incremented X for next image")
-            print(f"if {x_offset} + {image_width} > {max_row_width}:")
             if x_offset + image_width > max_row_width:
-                print(f"Hit the edge, incremented Y")
                 # If the image goes beyond the pane width, move to the next row
                 x_offset = 965  # Reset to the middle (right side)
                 y_offset += image_height  # Move down to the next row
 
     def export_images(self):
         pass  # Export functionality not implemented yet
+
+    def on_image_drag(self, event, image_id):
+        # Move the image based on mouse drag
+        self.main_pane.coords(image_id, event.x, event.y)
+        for img in self.images:
+            if img['id'] == image_id:
+                img['x'] = event.x
+                img['y'] = event.y
+                break
+
+    def on_image_release(self, event, image_id):
+        # Update the final position of the image after it is released
+        for img in self.images:
+            if img['id'] == image_id:
+                img['x'] = event.x
+                img['y'] = event.y
+                break
+
+    def make_image_draggable(self, image_id):
+        # Bind mouse events to make the image draggable
+        self.main_pane.tag_bind(image_id, "<ButtonPress-1>", self.start_drag)
+        self.main_pane.tag_bind(image_id, "<B1-Motion>", self.on_drag)
+        self.main_pane.tag_bind(image_id, "<ButtonRelease-1>", self.on_release)
+
+    def start_drag(self, event):
+        # Identify the image being clicked to start dragging
+        image_id = self.main_pane.find_closest(event.x, event.y)
+        self.dragging_image = image_id
+        self.on_image_drag(event, image_id)
+
+    def on_drag(self, event):
+        if self.dragging_image:
+            self.on_image_drag(event, self.dragging_image)
+
+    def on_release(self, event):
+        if self.dragging_image:
+            self.on_image_release(event, self.dragging_image)
+            self.dragging_image = None
+
 
 # Create the main window and run the app
 if __name__ == "__main__":
