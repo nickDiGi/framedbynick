@@ -31,7 +31,7 @@ class ImageLoaderApp:
         self.load_button = tk.Button(self.footer_frame, text="Load", command=self.load_images)
         self.load_button.pack(side="left", padx=20)
 
-        # Export button (does nothing for now)
+        # Export button (now prints images as requested)
         self.export_button = tk.Button(self.footer_frame, text="Export", command=self.export_images)
         self.export_button.pack(side="right", padx=20)
 
@@ -92,7 +92,23 @@ class ImageLoaderApp:
                 y_offset += image_height  # Move down to the next row
 
     def export_images(self):
-        pass  # Export functionality not implemented yet
+        # Separate the images into left and right sections based on their x values
+        left_images = [img for img in self.images if img['x'] < 480]
+        right_images = [img for img in self.images if img['x'] >= 480 and img['x'] < 960]
+
+        # Sort the images in each section by their y value in descending order
+        left_images_sorted = sorted(left_images, key=lambda img: img['y'], reverse=True)
+        right_images_sorted = sorted(right_images, key=lambda img: img['y'], reverse=True)
+
+        # Print the images from the left section
+        print("Images in the left section (x < 480):")
+        for img in left_images_sorted:
+            print(f"Image at x={img['x']}, y={img['y']}")
+
+        # Print the images from the right section
+        print("Images in the right section (x >= 480):")
+        for img in right_images_sorted:
+            print(f"Image at x={img['x']}, y={img['y']}")
 
     def on_image_drag(self, event, image_id):
         # Move the image based on mouse drag
@@ -106,7 +122,7 @@ class ImageLoaderApp:
     def on_image_release(self, event, image_id):
         # Update the final position of the image after it is released
         for img in self.images:
-            if img['id'] == image_id:
+            if img['id'] == image_id[0]:
                 img['x'] = event.x
                 img['y'] = event.y
                 break
