@@ -125,8 +125,8 @@ class ImageLoaderApp:
         self.main_pane.config(scrollregion=self.main_pane.bbox("all"))
 
     def export_images(self):
-        left_images = []
-        right_images = []
+        left_images = ['row']
+        right_images = ['row']
         export_image_columns = []
 
         # Sort the images in each section by their y value in descending order
@@ -137,9 +137,9 @@ class ImageLoaderApp:
                 # Hero Image
                 export_image_columns.append(list(left_images))
                 export_image_columns.append(list(right_images))
-                export_image_columns.append([img])
-                left_images = []
-                right_images = []
+                export_image_columns.append(['hero',img])
+                left_images = ['row']
+                right_images = ['row']
             elif (img['x'] + img['width']) < 480:
                 # Left Column
                 left_images.append(img)
@@ -153,9 +153,9 @@ class ImageLoaderApp:
             export_image_columns.append(list(right_images))
 
         for column_list in export_image_columns:
-            for item in column_list:
+            print(f"~~~~~~{column_list[0]}~~~~~~")
+            for item in column_list[1:]:
                  print(item['filename'])
-            print("~~~~~~~~~~~")
 
         '''# Print the images from the left section
         print("Images in the left section (x < 480):")
