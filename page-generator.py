@@ -125,15 +125,39 @@ class ImageLoaderApp:
         self.main_pane.config(scrollregion=self.main_pane.bbox("all"))
 
     def export_images(self):
-        # Separate the images into left and right sections based on their x values
-        left_images = [img for img in self.images if img['x'] < 480]
-        right_images = [img for img in self.images if img['x'] >= 480 and img['x'] < 960]
+        left_images = []
+        right_images = []
+        export_image_columns = []
 
         # Sort the images in each section by their y value in descending order
-        left_images_sorted = sorted(left_images, key=lambda img: img['y'], reverse=True)
-        right_images_sorted = sorted(right_images, key=lambda img: img['y'], reverse=True)
+        sorted_images = sorted(self.images, key=lambda img: img['y'], reverse=False)
+        # Separate the images into left and right sections based on their x values
+        for img in sorted_images:
+            if (img['x']) < 480 and (img['x'] + img['width']) >= 480:
+                # Hero Image
+                export_image_columns.append(list(left_images))
+                export_image_columns.append(list(right_images))
+                export_image_columns.append([img])
+                left_images = []
+                right_images = []
+            elif (img['x'] + img['width']) < 480:
+                # Left Column
+                left_images.append(img)
+            elif (img['x'] + img['width']) >= 480 and (img['x'] + img['width']) < 960:
+                # Right Column
+                right_images.append(img)
 
-        # Print the images from the left section
+        if (len(left_images)>0):
+            export_image_columns.append(list(left_images))
+        if (len(right_images)>0):
+            export_image_columns.append(list(right_images))
+
+        for column_list in export_image_columns:
+            for item in column_list:
+                 print(item['filename'])
+            print("~~~~~~~~~~~")
+
+        '''# Print the images from the left section
         print("Images in the left section (x < 480):")
         for img in left_images_sorted:
             print(f"Image {img['filename']} at x={img['x']}, y={img['y']}")
@@ -141,7 +165,7 @@ class ImageLoaderApp:
         # Print the images from the right section
         print("Images in the right section (x >= 480 < 960):")
         for img in right_images_sorted:
-            print(f"Image {img['filename']} at x={img['x']}, y={img['y']}")
+            print(f"Image {img['filename']} at x={img['x']}, y={img['y']}")'''
 
     def hero_image(self):
         if self.current_image_id:
