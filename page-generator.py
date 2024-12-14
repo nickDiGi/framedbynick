@@ -7,7 +7,7 @@ class ImageLoaderApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Image Loader")
-        self.root.geometry("1940x1080+0+0")  # Set position to top-left corner of the screen
+        self.root.geometry("1940x1080+0+0")
 
         # Create a container frame to hold the main content and footer
         self.main_frame = tk.Frame(self.root)
@@ -49,6 +49,13 @@ class ImageLoaderApp:
         self.images = []  # Store the image details for drag and drop
         self.dragging_image = None  # Store the image currently being dragged
 
+        # Create the context menu
+        self.context_menu = tk.Menu(self.root, tearoff=0)
+        self.context_menu.add_command(label="Hero", command=self.hero_image)
+        self.context_menu.add_command(label="Un-Hero", command=self.unhero_image)
+
+        self.current_image_id = None  # Track the image being right-clicked
+
     def load_images(self):
         folder_path = filedialog.askdirectory()  # Open dialog to choose folder
         if folder_path:
@@ -85,7 +92,9 @@ class ImageLoaderApp:
                 'filename': image_path,
                 'image': img_tk,
                 'x': x_offset,
-                'y': y_offset
+                'y': y_offset,
+                'width': img_tk.width(),
+                'height': img_tk.height()
             })
 
             # Store the image reference to prevent garbage collection
@@ -93,6 +102,9 @@ class ImageLoaderApp:
 
             # Bind drag and drop events to the image
             self.make_image_draggable(img_id)
+
+            # Bind right-click event to show context menu
+            self.main_pane.tag_bind(img_id, "<Button-3>", self.show_context_menu)
 
             # Update offsets for next image
             x_offset += (image_width + 10)  # Move horizontally by the image width
@@ -130,6 +142,42 @@ class ImageLoaderApp:
         print("Images in the right section (x >= 480 < 960):")
         for img in right_images_sorted:
             print(f"Image {img['filename']} at x={img['x']}, y={img['y']}")
+
+    def hero_image(self):
+        if self.current_image_id:
+            for img in self.images:
+                if img['id'] == self.current_image_id:
+                    # Double the size of the image
+                    img['width'] *= 2
+                    img['height'] *= 2
+                    img_resized = Image.open(img['filename']).resize((img['width'], img['height']))
+                    img_resized_tk = ImageTk.PhotoImage(img_resized)
+                    self.main_pane.itemconfig(img['id'], image=img_resized_tk)
+                    img['image'] = img_resized_tk  # Update the reference
+                    self.image_references.append(img_resized_tk)
+                    break
+
+    def unhero_image(self):
+        if self.current_image_id:
+            for img in self.images:
+                if img['id'] == self.current_image_id:
+                    # Halve the size of the image
+                    img['width'] //= 2
+                    img['height'] //= 2
+                    img_resized = Image.open(img['filename']).resize((img['width'], img['height']))
+                    img_resized_tk = ImageTk.PhotoImage(img_resized)
+                    self.main_pane.itemconfig(img['id'], image=img_resized_tk)
+                    img['image'] = img_resized_tk  # Update the reference
+                    self.image_references.append(img_resized_tk)
+                    break
+
+    def show_context_menu(self, event):
+        # Find the image being right-clicked
+        scroll_y = self.main_pane.yview()[0] * self.main_pane.bbox("all")[3]
+        adjusted_y = event.y + scroll_y
+        self.current_image_id = self.main_pane.find_closest(event.x, adjusted_y)[0]
+        self.context_menu.post(event.x_root, event.y_root)
+
 
     def on_image_drag(self, event, image_id):
         # Get the current vertical scroll position
