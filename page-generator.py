@@ -1,140 +1,161 @@
-import os
 import tkinter as tk
 from tkinter import filedialog, messagebox
+import os
 from PIL import Image, ImageTk
 
-class ImageGridApp:
+
+class ImageLoaderApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("Image Grid Organizer")
+        self.root.title("Image Loader")
 
-        self.image_folder = None
-        self.images = []
-        self.image_widgets = []
-        self.grid_data = [[], []]  # Two columns
+        # Create a canvas to hold the columns and make it scrollable
+        self.canvas = tk.Canvas(self.root)
+        self.canvas.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
 
+        # Create a scrollbar for the canvas
+        self.scrollbar = tk.Scrollbar(self.root, orient="vertical", command=self.canvas.yview)
+        self.scrollbar.pack(side="right", fill="y")
+
+        # Configure the canvas to work with the scrollbar
+        self.canvas.configure(yscrollcommand=self.scrollbar.set)
+
+        # Create a frame to hold the three columns inside the canvas
+        self.column_frame = tk.Frame(self.canvas)
+        self.canvas.create_window((0, 0), window=self.column_frame, anchor="nw")
+
+        # Create three columns (LabelFrame) for holding images
+        self.column1 = tk.LabelFrame(self.column_frame, text="Column 1", width=200, height=300)
+        self.column1.grid(row=0, column=0, padx=10, pady=10, sticky="n")
+
+        self.column2 = tk.LabelFrame(self.column_frame, text="Column 2", width=200, height=300)
+        self.column2.grid(row=0, column=1, padx=10, pady=10, sticky="n")
+
+        self.column3 = tk.LabelFrame(self.column_frame, text="Column 3", width=200, height=300)
+        self.column3.grid(row=0, column=2, padx=10, pady=10, sticky="n")
+
+        # Update the scroll region to accommodate all the columns
+        self.column_frame.update_idletasks()
+        self.canvas.config(scrollregion=self.canvas.bbox("all"))
+
+        # Button frame at the bottom, outside the canvas
+        self.button_frame = tk.Frame(self.root)
+        self.button_frame.pack(pady=10, fill=tk.X)
+
+        # Load button
+        self.load_button = tk.Button(self.button_frame, text="Load", command=self.load_images)
+        self.load_button.grid(row=0, column=0, padx=10)
+
+        # Export button (does nothing for now)
+        self.export_button = tk.Button(self.button_frame, text="Export", command=self.export_images)
+        self.export_button.grid(row=0, column=1, padx=10)
+
+        # A reference to images loaded into the app
+        self.loaded_images = []
+
+        # Variables to hold image and drag state
+        self.dragging_image = None
+        self.drag_start_x = 0
+        self.drag_start_y = 0
         self.dragged_widget = None
-        self.dragged_widget_original_row_col = None
-
-        self.setup_ui()
-
-    def setup_ui(self):
-        # Buttons
-        self.load_button = tk.Button(self.root, text="Load Images", command=self.load_images)
-        self.load_button.pack(pady=10)
-
-        self.grid_frame = tk.Frame(self.root)
-        self.grid_frame.pack(fill=tk.BOTH, expand=True)
-
-        self.save_button = tk.Button(self.root, text="Export Lists", command=self.export_lists)
-        self.save_button.pack(pady=10)
 
     def load_images(self):
-        folder = filedialog.askdirectory(title="Select Image Folder")
-        if not folder:
-            return
+        folder_path = filedialog.askdirectory(title="Select Folder")
+        if folder_path:
+            try:
+                # Clear the third column before loading new images
+                for widget in self.column3.winfo_children():
+                    widget.destroy()
 
-        self.image_folder = folder
-        self.images = []
+                # Load images from the selected folder
+                image_files = [f for f in os.listdir(folder_path) if f.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp'))]
 
-        # Load images from folder
-        for filename in os.listdir(folder):
-            if filename.lower().endswith((".png", ".jpg", ".jpeg", ".gif")):
-                self.images.append(os.path.join(folder, filename))
-
-        if not self.images:
-            messagebox.showerror("Error", "No images found in the selected folder.")
-            return
-
-        self.display_images()
-
-    def display_images(self):
-        # Clear previous widgets and grid data
-        for widget in self.image_widgets:
-            widget.destroy()
-        self.image_widgets = []
-        self.grid_data = [[], []]
-
-        for i, image_path in enumerate(self.images):
-            col = i % 2  # Alternate between columns
-            img = Image.open(image_path)
-            img.thumbnail((100, 100))  # Resize image to thumbnail size
-            img_tk = ImageTk.PhotoImage(img)
-
-            label = tk.Label(self.grid_frame, image=img_tk, borderwidth=2, relief="groove")
-            label.image = img_tk  # Keep reference to avoid garbage collection
-            label.image_path = image_path  # Store image path in label
-
-            label.bind("<ButtonPress-1>", self.start_drag)
-            label.bind("<B1-Motion>", self.drag)
-            label.bind("<ButtonRelease-1>", self.drop)
-
-            label.grid(row=len(self.grid_data[col]), column=col, padx=5, pady=5)
-            self.grid_data[col].append(image_path)
-            self.image_widgets.append(label)
-
-    def start_drag(self, event):
-        widget = event.widget
-        self.dragged_widget = widget
-
-        # Store the original grid position
-        for row in range(len(self.grid_data)):
-            for col in range(2):
-                if widget.image_path in self.grid_data[col]:
-                    self.dragged_widget_original_row_col = (row, col)
+                if not image_files:
+                    messagebox.showinfo("No Images", "No image files found in the selected folder.")
                     return
 
-    def drag(self, event):
-        if self.dragged_widget:
-            self.dragged_widget.lift()
-            self.dragged_widget.place(x=event.x_root - self.grid_frame.winfo_rootx(),
-                                      y=event.y_root - self.grid_frame.winfo_rooty())
+                # Store loaded images and display them in column3
+                for image_file in image_files:
+                    img_path = os.path.join(folder_path, image_file)
+                    img = Image.open(img_path)
+                    img.thumbnail((150, 150))  # Resize image to fit in the column
+                    img_tk = ImageTk.PhotoImage(img)
 
-    def drop(self, event):
-        if not self.dragged_widget:
-            return
+                    # Add the image to loaded_images list
+                    self.loaded_images.append(img_tk)
 
-        x, y = event.widget.winfo_pointerxy()
-        target = self.grid_frame.winfo_containing(x, y)
+                    # Create label for each image and display it in column3
+                    img_label = tk.Label(self.column3, image=img_tk)
+                    img_label.image = img_tk  # Keep a reference to avoid garbage collection
+                    img_label.pack(padx=10, pady=5)
 
-        if target and isinstance(target, tk.Label):
-            self.swap_images(self.dragged_widget, target)
-        else:
-            # Return to original position if dropped in invalid area
-            self.dragged_widget.place_forget()
-            row, col = self.dragged_widget_original_row_col
-            self.dragged_widget.grid(row=row, column=col)
+                    # Bind mouse events for dragging
+                    img_label.bind("<ButtonPress-1>", self.start_drag)
+                    img_label.bind("<B1-Motion>", self.do_drag)
+                    img_label.bind("<ButtonRelease-1>", self.end_drag)
 
-        self.dragged_widget = None
+                # Update scroll region after images are loaded
+                self.column_frame.update_idletasks()
+                self.canvas.config(scrollregion=self.canvas.bbox("all"))
 
-    def swap_images(self, widget1, widget2):
-        path1, path2 = widget1.image_path, widget2.image_path
+            except Exception as e:
+                messagebox.showerror("Error", f"An error occurred while loading images: {e}")
 
-        # Find their positions in grid_data
-        for col in range(2):
-            if path1 in self.grid_data[col] and path2 in self.grid_data[col]:
-                index1, index2 = self.grid_data[col].index(path1), self.grid_data[col].index(path2)
-                self.grid_data[col][index1], self.grid_data[col][index2] = path2, path1
-                break
-            elif path1 in self.grid_data[col]:
-                index1 = self.grid_data[col].index(path1)
-                other_col = 1 - col
-                index2 = self.grid_data[other_col].index(path2)
-                self.grid_data[col][index1], self.grid_data[other_col][index2] = path2, path1
-                break
+    def export_images(self):
+        # Placeholder function for export functionality
+        pass
 
-        # Refresh the grid display after swapping
-        self.display_images()
+    def start_drag(self, event):
+        """Start dragging the image widget"""
+        self.dragging_image = event.widget
+        self.drag_start_x = event.x
+        self.drag_start_y = event.y
+        self.dragged_widget = event.widget
 
-    def export_lists(self):
-        if not any(self.grid_data):
-            messagebox.showerror("Error", "No images to export.")
-            return
+        # Bring the image to the front
+        self.dragging_image.lift()
 
-        output = "Column 1:\n" + "\n".join(self.grid_data[0]) + "\n\nColumn 2:\n" + "\n".join(self.grid_data[1])
-        messagebox.showinfo("Exported Lists", output)
+        # Move the image outside the column structure to the root window
+        self.dragging_image.place_forget()
+
+    def do_drag(self, event):
+        """Move the image widget with the mouse"""
+        if self.dragging_image:
+            dx = event.x - self.drag_start_x
+            dy = event.y - self.drag_start_y
+            self.dragging_image.place(x=self.dragging_image.winfo_x() + dx, y=self.dragging_image.winfo_y() + dy)
+
+    def end_drag(self, event):
+        """Snap the image to the column where it is dropped"""
+        if self.dragging_image:
+            target_column = None
+
+            # Check if the image is dropped into any of the columns
+            for column in [self.column1, self.column2, self.column3]:
+                column_bbox = column.bbox("all")
+                if column_bbox:
+                    column_x1, column_y1, column_x2, column_y2 = column_bbox
+                    if column_x1 <= event.x_root <= column_x2 and column_y1 <= event.y_root <= column_y2:
+                        target_column = column
+                        break
+
+            if target_column:
+                # Remove from old position and place in target column
+                self.dragging_image.place_forget()
+                self.dragging_image.pack(in_=target_column, padx=10, pady=5)
+            else:
+                # If dropped outside, place back to original column
+                self.dragging_image.place_forget()
+                self.dragging_image.pack(in_=self.column3, padx=10, pady=5)
+
+            # Ensure the image is on top
+            self.dragging_image.lift()
+
+            self.dragging_image = None
+            self.dragged_widget = None
+
 
 if __name__ == "__main__":
     root = tk.Tk()
-    app = ImageGridApp(root)
+    app = ImageLoaderApp(root)
     root.mainloop()
