@@ -35,40 +35,40 @@
 
         <div class="row">
             <div class="column-double">
-                <a class="lightbox" href="img/obx-2023/IMG_0525.JPG">
-                    <img src="img/obx-2023/IMG_0525.JPG">
+                <a class="lightbox" href="img/obx-2023/medium/IMG_0525.JPG">
+                    <img src="img/obx-2023/medium/IMG_0525.JPG" loading="lazy">
                 </a>
-                <a class="lightbox" href="img/obx-2023/IMG_7363.JPG">
-                    <img src="img/obx-2023/IMG_7363.JPG">
+                <a class="lightbox" href="img/obx-2023/medium/IMG_7363.JPG">
+                    <img src="img/obx-2023/medium/IMG_7363.JPG" loading="lazy">
                 </a>
-                <a class="lightbox" href="img/obx-2023/IMG_7400.JPG">
-                    <img src="img/obx-2023/IMG_7400.JPG">
+                <a class="lightbox" href="img/obx-2023/medium/IMG_7400.JPG">
+                    <img src="img/obx-2023/medium/IMG_7400.JPG" loading="lazy">
                 </a>
-                <a class="lightbox" href="img/obx-2023/IMG_7371.JPG">
-                    <img src="img/obx-2023/IMG_7371.JPG">
+                <a class="lightbox" href="img/obx-2023/medium/IMG_7371.JPG">
+                    <img src="img/obx-2023/medium/IMG_7371.JPG" loading="lazy">
                 </a>
-                <a class="lightbox" href="img/obx-2023/IMG_0520.JPG">
-                    <img src="img/obx-2023/IMG_0520.JPG">
+                <a class="lightbox" href="img/obx-2023/medium/IMG_0520.JPG">
+                    <img src="img/obx-2023/medium/IMG_0520.JPG" loading="lazy">
                 </a>
-                <a class="lightbox" href="img/obx-2023/IMG_7359.JPG">
-                    <img src="img/obx-2023/IMG_7359.JPG">
+                <a class="lightbox" href="img/obx-2023/medium/IMG_7359.JPG">
+                    <img src="img/obx-2023/medium/IMG_7359.JPG" loading="lazy">
                 </a>
             </div>
             <div class="column-double">
-                <a class="lightbox" href="img/obx-2023/IMG_6760.JPEG">
-                    <img src="img/obx-2023/IMG_6760.JPEG">
+                <a class="lightbox" href="img/obx-2023/medium/IMG_6760.JPEG">
+                    <img src="img/obx-2023/medium/IMG_6760.JPEG" loading="lazy">
                 </a>
-                <a class="lightbox" href="img/obx-2023/IMG_0522.JPG">
-                    <img src="img/obx-2023/IMG_0522.JPG">
+                <a class="lightbox" href="img/obx-2023/medium/IMG_0522.JPG">
+                    <img src="img/obx-2023/medium/IMG_0522.JPG" loading="lazy">
                 </a>
-                <a class="lightbox" href="img/obx-2023/IMG_7389.JPG">
-                    <img src="img/obx-2023/IMG_7389.JPG">
+                <a class="lightbox" href="img/obx-2023/medium/IMG_7389.JPG">
+                    <img src="img/obx-2023/medium/IMG_7389.JPG" loading="lazy">
                 </a>
-                <a class="lightbox" href="img/obx-2023/IMG_7397.JPG">
-                    <img src="img/obx-2023/IMG_7397.JPG">
+                <a class="lightbox" href="img/obx-2023/medium/IMG_7397.JPG">
+                    <img src="img/obx-2023/medium/IMG_7397.JPG" loading="lazy">
                 </a>
-                <a class="lightbox" href="img/obx-2023/IMG_0524.JPG">
-                    <img src="img/obx-2023/IMG_0524.JPG">
+                <a class="lightbox" href="img/obx-2023/medium/IMG_0524.JPG">
+                    <img src="img/obx-2023/medium/IMG_0524.JPG" loading="lazy">
                 </a>
             </div>
           </div>
