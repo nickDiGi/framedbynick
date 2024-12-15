@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Special+Elite">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <style>
+      body {
+        font-family: 'Special Elite', serif;
+        font-size: 48px;
+      }
+    </style>
+
+    <!-- Add stylesheets here -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gallery.css">
+
+</head>
+
+<body>
+    <div class="faux-borders">
+
+        <div class="content">
+            <a class="lightbox" href="/">
+                <h1>
+                    framed by Nick 
+                </h1>
+            </a>
+            <h2>
+                hawaii 2024
+            </h2>
+        </div>
+
+        <div class="row">
+            <div class="column-double">
+                <a class="lightbox" href="img/hawaii-2024/full-size\000952400022.jpg">
+                    <img src="img/hawaii-2024/medium\000952400022.jpg" loading="lazy">
+                </a>
+            </div>
+            <div class="column-double">
+                <a class="lightbox" href="img/hawaii-2024/full-size\IMG_0911.JPG">
+                    <img src="img/hawaii-2024/medium\IMG_0911.JPG" loading="lazy">
+                </a>
+            </div>
+        </div>
+
+        <div class="hero">
+            <a class="lightbox" href="img/hawaii-2024/full-size\000952400029.jpg">
+                <img src="img/hawaii-2024/medium\hero-000952400029.jpg" loading="lazy">
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="column-double">
+                <a class="lightbox" href="img/hawaii-2024/full-size\000952400002-edited.jpg">
+                    <img src="img/hawaii-2024/medium\000952400002-edited.jpg" loading="lazy">
+                </a>
+                <a class="lightbox" href="img/hawaii-2024/full-size\IMG_1142.JPG">
+                    <img src="img/hawaii-2024/medium\IMG_1142.JPG" loading="lazy">
+                </a>
+            </div>
+            <div class="column-double">
+                <a class="lightbox" href="img/hawaii-2024/full-size\000952400010.jpg">
+                    <img src="img/hawaii-2024/medium\000952400010.jpg" loading="lazy">
+                </a>
+                <a class="lightbox" href="img/hawaii-2024/full-size\000952400003-edited.jpg">
+                    <img src="img/hawaii-2024/medium\000952400003-edited.jpg" loading="lazy">
+                </a>
+            </div>
+        </div>
+
+        <div class="hero">
+            <a class="lightbox" href="img/hawaii-2024/full-size\000952410006.jpg">
+                <img src="img/hawaii-2024/medium\hero-000952410006.jpg" loading="lazy">
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="column-double">
+                <a class="lightbox" href="img/hawaii-2024/full-size\IMG_0920.JPG">
+                    <img src="img/hawaii-2024/medium\IMG_0920.JPG" loading="lazy">
+                </a>
+                <a class="lightbox" href="img/hawaii-2024/full-size\000952390026-edited.jpg">
+                    <img src="img/hawaii-2024/medium\000952390026-edited.jpg" loading="lazy">
+                </a>
+            </div>
+            <div class="column-double">
+                <a class="lightbox" href="img/hawaii-2024/full-size\000952390033-edited.jpg">
+                    <img src="img/hawaii-2024/medium\000952390033-edited.jpg" loading="lazy">
+                </a>
+                <a class="lightbox" href="img/hawaii-2024/full-size\000952400001.jpg">
+                    <img src="img/hawaii-2024/medium\000952400001.jpg" loading="lazy">
+                </a>
+            </div>
+        </div>
+
+        <div class="hero">
+            <a class="lightbox" href="img/hawaii-2024/full-size\IMG_1037.jpg">
+                <img src="img/hawaii-2024/medium\hero-IMG_1037.jpg" loading="lazy">
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="column-double">
+                <a class="lightbox" href="img/hawaii-2024/full-size\IMG_1015.jpg">
+                    <img src="img/hawaii-2024/medium\IMG_1015.jpg" loading="lazy">
+                </a>
+            </div>
+            <div class="column-double">
+                <a class="lightbox" href="img/hawaii-2024/full-size\IMG_1045.JPG">
+                    <img src="img/hawaii-2024/medium\IMG_1045.JPG" loading="lazy">
+                </a>
+            </div>
+        </div>
+
+        <div class="hero">
+            <a class="lightbox" href="img/hawaii-2024/full-size\IMG_1005.jpg">
+                <img src="img/hawaii-2024/medium\hero-IMG_1005.jpg" loading="lazy">
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="column-double">
+                <a class="lightbox" href="img/hawaii-2024/full-size\000952390021.jpg">
+                    <img src="img/hawaii-2024/medium\000952390021.jpg" loading="lazy">
+                </a>
+                <a class="lightbox" href="img/hawaii-2024/full-size\IMG_1127.JPG">
+                    <img src="img/hawaii-2024/medium\IMG_1127.JPG" loading="lazy">
+                </a>
+                <a class="lightbox" href="img/hawaii-2024/full-size\IMG_0986.jpg">
+                    <img src="img/hawaii-2024/medium\IMG_0986.jpg" loading="lazy">
+                </a>
+                <a class="lightbox" href="img/hawaii-2024/full-size\000952400033-edited.jpg">
+                    <img src="img/hawaii-2024/medium\000952400033-edited.jpg" loading="lazy">
+                </a>
+            </div>
+            <div class="column-double">
+                <a class="lightbox" href="img/hawaii-2024/full-size\000952390006-edited.jpg">
+                    <img src="img/hawaii-2024/medium\000952390006-edited.jpg" loading="lazy">
+                </a>
+                <a class="lightbox" href="img/hawaii-2024/full-size\IMG_1197.JPG">
+                    <img src="img/hawaii-2024/medium\IMG_1197.JPG" loading="lazy">
+                </a>
+                <a class="lightbox" href="img/hawaii-2024/full-size\000952390003-edited.jpg">
+                    <img src="img/hawaii-2024/medium\000952390003-edited.jpg" loading="lazy">
+                </a>
+                <a class="lightbox" href="img/hawaii-2024/full-size\IMG_0957.jpg">
+                    <img src="img/hawaii-2024/medium\IMG_0957.jpg" loading="lazy">
+                </a>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

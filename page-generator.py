@@ -133,6 +133,7 @@ class ImageLoaderApp:
         self.context_menu = tk.Menu(self.root, tearoff=0)
         self.context_menu.add_command(label="Hero", command=self.hero_image)
         self.context_menu.add_command(label="Un-Hero", command=self.unhero_image)
+        self.context_menu.add_command(label="Rotate 90°", command=self.rotate_image_90)
 
         self.current_image_id = None  # Track the image being right-clicked
 
@@ -194,9 +195,9 @@ class ImageLoaderApp:
                 y_offset += image_height + 10  # Move down to the next row
 
         # Draw a light blue box covering the left half of the main pane
-        extended_rect1 = self.main_pane.create_rectangle(0, 0, 960, y_offset-5, fill="lightblue", outline="lightblue")
+        extended_rect1 = self.main_pane.create_rectangle(0, 0, 960, y_offset*2, fill="lightblue", outline="lightblue")
         # Draw a thin vertical white bar in the middle
-        extended_rect2 = self.main_pane.create_rectangle(480, 0, 485, y_offset-5, fill="white", outline="white")
+        extended_rect2 = self.main_pane.create_rectangle(480, 0, 485, y_offset*2, fill="white", outline="white")
         # Make sure the images are always on top by lowering the rectangles to the back
         self.main_pane.tag_lower(extended_rect2, "all")
         self.main_pane.tag_lower(extended_rect1, "all")
@@ -289,6 +290,26 @@ class ImageLoaderApp:
                     self.main_pane.itemconfig(img['id'], image=img_resized_tk)
                     img['image'] = img_resized_tk  # Update the reference
                     self.image_references.append(img_resized_tk)
+                    break
+
+    def rotate_image_90(self):
+        if self.current_image_id:
+            for img in self.images:
+                if img['id'] == self.current_image_id:
+                    # Open the image, rotate it 90 degrees, and update the canvas
+                    img_rotated = Image.open(img['filename']).rotate(-90, expand=True)
+                    img_rotated_tk = ImageTk.PhotoImage(img_rotated)
+
+                    # Update the canvas with the rotated image
+                    self.main_pane.itemconfig(img['id'], image=img_rotated_tk)
+
+                    # Update the image reference and size
+                    img['image'] = img_rotated_tk
+                    img['width'], img['height'] = img_rotated.size
+                    self.image_references.append(img_rotated_tk)
+
+                    # Save the rotated image to the same filename
+                    img_rotated.save(img['filename'])
                     break
 
     def show_context_menu(self, event):
